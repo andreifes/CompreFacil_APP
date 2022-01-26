@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="container_white">
+        <item name="android:background">@drawable/container_white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="container_pastelpurple">
+        <item name="android:background">@drawable/container_pastelpurple</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="button_dark_pastel_pink">
+        <item name="android:background">@drawable/button_darkpastelpink</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="button_white">
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+</resources>

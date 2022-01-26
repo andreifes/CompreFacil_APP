@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pastelpurple"
+    tools:context=".activities.SupermarketActivity">
+
+    <include
+        android:id="@+id/i_toolbar_supermarke"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_supermercado_supermarke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_toolbar_supermarke"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_nome_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Carone"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_supermercado_supermarke"
+        app:layout_constraintTop_toTopOf="@+id/iv_supermercado_supermarke" />
+
+    <TextView
+        android:id="@+id/tv_localizacao_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Serra - Laranjeiras"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_supermercado_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nome_supermarke" />
+
+    <TextView
+        android:id="@+id/tv_identificador_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="100010"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toEndOf="@+id/iv_supermercado_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_localizacao_supermarke" />
+
+    <View
+        android:id="@+id/v_container_supermarke"
+        style="@style/container_white"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/iv_supermercado_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/iv_supermercado_supermarke" />
+
+    <SearchView
+        android:id="@+id/sv_produtos_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/v_container_supermarke"
+        app:layout_constraintEnd_toEndOf="@+id/v_container_supermarke"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/v_container_supermarke"
+        app:layout_constraintTop_toTopOf="@+id/v_container_supermarke"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_categorias_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Categorias"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/v_container_supermarke"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/v_container_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/v_container_supermarke" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categorias_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_categorias_supermarke"
+        app:layout_constraintStart_toStartOf="@+id/tv_categorias_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_categorias_supermarke" />
+
+    <TextView
+        android:id="@+id/tv_produtos_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Produtos"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/rv_categorias_supermarke"
+        app:layout_constraintStart_toStartOf="@+id/rv_categorias_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/rv_categorias_supermarke" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_produtos_supermarke"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_produtos_supermarke"
+        app:layout_constraintStart_toStartOf="@+id/tv_produtos_supermarke"
+        app:layout_constraintTop_toBottomOf="@+id/tv_produtos_supermarke" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

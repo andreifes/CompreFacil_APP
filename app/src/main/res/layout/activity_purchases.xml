@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PurchasesActivity"
+    android:background="@color/pastelpurple">
+
+    <include
+        android:id="@+id/i_toolbar_purchases"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_compras_purchases"
+        android:layout_width="106dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
+        android:text="Compras"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/iv_container_purchases"
+        app:layout_constraintTop_toBottomOf="@+id/i_toolbar_purchases" />
+
+    <ImageView
+        android:id="@+id/iv_container_purchases"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/container_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_compras_purchases"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_compras_purchases"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_container_purchases"
+        app:layout_constraintEnd_toEndOf="@+id/iv_container_purchases"
+        app:layout_constraintStart_toStartOf="@+id/iv_container_purchases"
+        app:layout_constraintTop_toTopOf="@+id/iv_container_purchases" />
+</androidx.constraintlayout.widget.ConstraintLayout>
