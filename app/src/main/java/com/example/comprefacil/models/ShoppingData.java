@@ -6,15 +6,22 @@ public class ShoppingData {
     public int id;
     public String nome;
     public String preco;
-    public Bitmap img;
-    public int categoria;
+    public Bitmap imgItem;
+    public Bitmap imgDelete;
 
-    public ShoppingData(int id, String nome, String preco, Bitmap img, int categoria) {
+    public ShoppingData(int id, String nome, String preco, Bitmap imgItem, Bitmap imgDelete) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
-        this.img = img;
-        this.categoria = categoria;
+        this.imgItem = imgItem;
+        this.imgDelete = imgDelete;
+    }
+
+    public ShoppingData(String nome, String preco, Bitmap imgItem, Bitmap imgDelete) {
+        this.nome = nome;
+        this.preco = preco;
+        this.imgItem = imgItem;
+        this.imgDelete = imgDelete;
     }
 
     public int getId() {
@@ -29,11 +36,11 @@ public class ShoppingData {
         return preco;
     }
 
-    public Bitmap getImg() {
-        return img;
+    public Bitmap getImgItem() {
+        return imgItem;
     }
 
-    public int getCategoria() {
-        return categoria;
+    public Bitmap getImgDelete() {
+        return imgDelete;
     }
 }
