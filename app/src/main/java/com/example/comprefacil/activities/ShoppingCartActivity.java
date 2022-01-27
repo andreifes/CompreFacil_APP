@@ -137,6 +137,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 });
             }else{
                     Toast.makeText(ShoppingCartActivity.this, "Não há nenhum produto no carrinho.", Toast.LENGTH_SHORT).show();}
+
+                itens.remove(ShoppingCart.getItens());
             }
         });
 
