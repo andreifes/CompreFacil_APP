@@ -71,12 +71,13 @@ public class SupermarketViewModel extends ViewModel {
                             String nome = jProduto.getString("nome");
                             String categoria = jProduto.getString("nome_categoria");
                             String imageBase64 = jProduto.getString("img");
-                            String id_produto = jProduto.getString("id");
+                            String id_produto = jProduto.getString("id_produto");
+                            String id_item = jProduto.getString("id_item");
                             imageBase64 = imageBase64.substring(imageBase64.indexOf(",") + 1);
                             Bitmap img_produto = Util.base642Bitmap(imageBase64);
                             //int id, String nome, String preco, Bitmap img, int categoria
                             //int id_mercado, int id_produto, String nome, String preco, Bitmap img, int categoria
-                            ProdutoData produtoData = new ProdutoData(id, id_produto, nome, preco, img_produto, id_categoria);
+                            ProdutoData produtoData = new ProdutoData(id, id_produto, id_item, nome, preco, img_produto, id_categoria);
                             produtoDataList.add(produtoData);
 
                         }

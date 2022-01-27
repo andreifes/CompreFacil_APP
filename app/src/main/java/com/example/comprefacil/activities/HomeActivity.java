@@ -8,8 +8,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import com.example.comprefacil.R;
@@ -25,6 +28,24 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ImageView imgCarrinho = findViewById(R.id.iv_carrinho_toolbar);
+        imgCarrinho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intado = new Intent(HomeActivity.this, ShoppingCartActivity.class);
+                startActivity(intado);
+            }
+        });
+
+        ImageView imgPerfil = findViewById(R.id.iv_perfil_toolbar);
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intado1 = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intado1);
+            }
+        });
 
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 

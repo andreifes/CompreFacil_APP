@@ -17,6 +17,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        View acb_compras_profile = findViewById(R.id.acb_compras_profile);
+        acb_compras_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intado = new Intent(ProfileActivity.this, PurchasesActivity.class);
+                startActivity(intado);
+            }
+        });
+
         ImageView imgCarrinho = findViewById(R.id.iv_carrinho_toolbar);
         imgCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,16 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intado);
             }
         });
-
-        ImageView imgPerfil = findViewById(R.id.iv_perfil_toolbar);
-        imgPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intado1 = new Intent(ProfileActivity.this, ProfileActivity.class);
-                startActivity(intado1);
-            }
-        });
-
 
         //Deslogar do aplicativo
         View acb_sair_profile = findViewById(R.id.acb_sair_profile);
