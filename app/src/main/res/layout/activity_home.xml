@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/test6"
-    tools:context=".activities.HomeActivity">
+    android:background="@drawable/background_tile"
+    android:tileMode="repeat"
+    tools:context=".activities.HomeActivity"
+    android:theme="@style/AppTheme">
 
     <include
         android:id="@+id/i_toolbar_home"
@@ -30,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/i_toolbar_home" />
 
     <SearchView
+
         android:id="@+id/sv_supermercados_home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

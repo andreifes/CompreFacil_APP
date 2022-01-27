@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastelpink"
+    android:background="@color/test3"
     tools:context=".activities.SignUpActivity">
 
     <View
         android:id="@+id/v_container_singup"
-        style="@style/container_pastelpurple"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -35,15 +34,16 @@
         app:srcCompat="@drawable/logo" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:elevation="20dp"
         android:id="@+id/acb_entre_singup"
-        style="@style/button_white"
+        style="@style/button_grey"
         android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="           Entrar"
         android:textAlignment="textStart"
-        android:textColor="@color/darkpastelpink"
+        android:textColor="@color/test3"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/acb_cadastrese_singup"
         app:layout_constraintStart_toStartOf="@+id/v_container_singup"
@@ -68,50 +68,50 @@
     </androidx.appcompat.widget.AppCompatButton>
 
     <EditText
-        android:textColorHint="#454545"
-        android:backgroundTint="@color/black"
         android:id="@+id/et_nome_singup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#000000"
+        android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/acb_cadastrese_singup"
         app:layout_constraintStart_toStartOf="@+id/acb_entre_singup"
         app:layout_constraintTop_toBottomOf="@+id/acb_entre_singup" />
 
     <EditText
-        android:textColorHint="#454545"
-        android:backgroundTint="@color/black"
         android:id="@+id/et_email_singup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
+        android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/et_nome_singup"
         app:layout_constraintStart_toStartOf="@+id/et_nome_singup"
         app:layout_constraintTop_toBottomOf="@+id/et_nome_singup"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:textColorHint="#454545"
-        android:backgroundTint="@color/black"
         android:id="@+id/et_telefone_singup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Telefone"
         android:inputType="phone"
         android:textColor="#000000"
+        android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/et_email_singup"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/et_email_singup"
@@ -119,16 +119,16 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:textColorHint="#454545"
-        android:backgroundTint="@color/black"
         android:id="@+id/et_senha_singup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         android:textColor="#000000"
+        android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/et_telefone_singup"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/et_telefone_singup"
@@ -136,16 +136,16 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:textColorHint="#454545"
-        android:backgroundTint="@color/black"
         android:id="@+id/et_confirmarsenha_singup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="Confirmar senha"
         android:inputType="textPassword"
         android:textColor="#000000"
+        android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/et_senha_singup"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_senha_singup"

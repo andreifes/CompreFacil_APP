@@ -5,8 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ShoppingCartActivity"
-    android:background="@color/test6">
+    android:background="@drawable/background_tile">
 
+    <View
+        android:id="@+id/v_container_shoppingcart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/container_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i_toolbar_shoppingcart" />
+
+    <include
+        android:id="@+id/i_toolbar_shoppingcart"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/acb_finalizarcompra_shoppingcart"
+        style="@style/button_dark_pastel_pink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Finalizar Compra"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/v_container_shoppingcart"
+        app:layout_constraintEnd_toEndOf="@+id/v_container_shoppingcart"
+        app:layout_constraintStart_toStartOf="@+id/v_container_shoppingcart">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_itens_cart"
@@ -15,44 +53,25 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/container_white"
+        android:layout_marginBottom="16dp"
         android:elevation="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/acb_finalizarcompra_purchases"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acb_finalizarcompra_purchases"
-        style="@style/button_dark_pastel_pink"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
-        android:elevation="20dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rv_itens_cart"
-        app:layout_constraintStart_toStartOf="@+id/rv_itens_cart"
-        tools:ignore="TextContrastCheck"
-        tools:text="Finalizar Compra">
-
-    </androidx.appcompat.widget.AppCompatButton>
+        app:layout_constraintBottom_toTopOf="@+id/acb_finalizarcompra_shoppingcart"
+        app:layout_constraintEnd_toEndOf="@+id/v_container_shoppingcart"
+        app:layout_constraintStart_toStartOf="@+id/v_container_shoppingcart"
+        app:layout_constraintTop_toBottomOf="@+id/tv_carrinho_shoppingcart" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_carrinho_shoppingcart"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="CARRINHO"
+        android:layout_marginTop="8dp"
+        android:text="Carrinho"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rv_itens_cart"
         app:layout_constraintStart_toStartOf="@+id/rv_itens_cart"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/v_container_shoppingcart" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

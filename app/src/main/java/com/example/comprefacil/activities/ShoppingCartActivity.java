@@ -41,7 +41,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         AdapterShoppingCart adapterShoppingCart = new AdapterShoppingCart(ShoppingCartActivity.this, ShoppingCart.getItens());
         rvItem.setAdapter(adapterShoppingCart);
 
-        Button acb_finaliza_cart = findViewById(R.id.acb_finalizarcompra_purchases);
+        Button acb_finaliza_cart = findViewById(R.id.acb_finalizarcompra_shoppingcart);
         acb_finaliza_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

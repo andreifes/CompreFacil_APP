@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight="16dp"
     android:layout_marginBottom="6dp"
-    android:background="@drawable/container_white"
+    android:background="@drawable/container_red"
     android:elevation="5dp">
 
     <ImageView
@@ -28,7 +28,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/item_iv_categories_supermarket"

@@ -9,7 +9,6 @@
 
     <View
         android:id="@+id/v_container_login"
-        style="@style/container_pastelpurple"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -35,7 +34,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/acb_cadastrese_login"
-        style="@style/button_white"
+        style="@style/button_grey"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -78,6 +77,7 @@
         android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="E-mail"
+        android:textColor="@color/black"
         android:inputType="textEmailAddress"
         android:textColorHint="#454545"
         app:layout_constraintEnd_toEndOf="@+id/acb_cadastrese_login"
@@ -86,6 +86,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
+        android:textColor="@color/black"
         android:id="@+id/et_senha_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

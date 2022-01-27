@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/test6"
-    tools:context=".activities.ProfileActivity">
+    android:background="@drawable/background_tile"
+    tools:context=".activities.ProfileActivity"
+    android:theme="@style/AppTheme">
 
     <include
         android:id="@+id/i_toolbar_profile"
@@ -14,109 +15,124 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_nome_profile"
-        android:layout_width="45dp"
-        android:layout_height="46dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/i_toolbar_profile"
-        app:srcCompat="@drawable/ic_card" />
-
-    <ImageView
-        android:id="@+id/iv_email_profile"
-        android:layout_width="46dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_nome_profile"
-        app:layout_constraintStart_toStartOf="@+id/iv_nome_profile"
-        app:layout_constraintTop_toBottomOf="@+id/iv_nome_profile"
-        app:srcCompat="@drawable/ic_email" />
-
-    <ImageView
-        android:id="@+id/iv_telefone_profile"
-        android:layout_width="46dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_email_profile"
-        app:layout_constraintStart_toStartOf="@+id/iv_email_profile"
-        app:layout_constraintTop_toBottomOf="@+id/iv_email_profile"
-        app:srcCompat="@drawable/ic_telephone" />
-
-    <TextView
-        android:id="@+id/tv_nome_profile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_nome_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_nome_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_nome_profile" />
-
-    <TextView
-        android:id="@+id/tv_email_profile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_email_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_email_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_email_profile" />
-
-    <TextView
-        android:id="@+id/tv_compras_profile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_telefone_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_telefone_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_telefone_profile" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acb_compras_profile"
-        style="@style/button_white"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:text="Compras"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_telefone_profile" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acb_sair_profile"
-        style="@style/button_dark_pastel_pink"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="SAIR"
-        android:textColor="#FBFBFB"
-        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/container_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acb_compras_profile"
-        app:layout_constraintVertical_bias="0.835"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/i_toolbar_profile">
+
+        <TextView
+            android:id="@+id/tv_perfil_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Perfil"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_nome_profile"
+            android:layout_width="45dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_perfil_profile"
+            app:srcCompat="@drawable/ic_card" />
+
+        <TextView
+            android:id="@+id/tv_compras_profile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_telefone_profile"
+            app:layout_constraintEnd_toEndOf="@+id/tv_email_profile"
+            app:layout_constraintStart_toStartOf="@+id/tv_email_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_telefone_profile" />
+
+        <TextView
+            android:id="@+id/tv_nome_profile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_nome_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_nome_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_nome_profile" />
+
+        <ImageView
+            android:id="@+id/iv_email_profile"
+            android:layout_width="46dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_nome_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_nome_profile"
+            app:layout_constraintTop_toBottomOf="@+id/iv_nome_profile"
+            app:srcCompat="@drawable/ic_email" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/acb_compras_profile"
+            style="@style/button_dark_pastel_pink"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Compras"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_telefone_profile" />
+
+        <ImageView
+            android:id="@+id/iv_telefone_profile"
+            android:layout_width="46dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_email_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_email_profile"
+            app:layout_constraintTop_toBottomOf="@+id/iv_email_profile"
+            app:srcCompat="@drawable/ic_telephone" />
+
+        <TextView
+            android:id="@+id/tv_email_profile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="TextView"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_email_profile"
+            app:layout_constraintEnd_toEndOf="@+id/tv_nome_profile"
+            app:layout_constraintStart_toStartOf="@+id/tv_nome_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_email_profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/acb_sair_profile"
+            style="@style/button_dark_pastel_pink"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="24dp"
+            android:text="SAIR"
+            android:textColor="#FBFBFB"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
