@@ -15,4 +15,8 @@ public class ShoppingCart {
     static public void addProduto(ProdutoData produto){
         itens.add(produto);
     }
+
+    static public void deleteItens(){
+       itens.clear();
+    }
 }
