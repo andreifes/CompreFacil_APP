@@ -1,14 +1,9 @@
 package com.example.comprefacil.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,16 +11,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.comprefacil.R;
-import com.example.comprefacil.adapters.AdapterHome;
 import com.example.comprefacil.adapters.AdapterShoppingCart;
-import com.example.comprefacil.models.HomeViewModel;
-import com.example.comprefacil.models.MercadoData;
 import com.example.comprefacil.models.ProdutoData;
 import com.example.comprefacil.models.ShoppingCart;
-import com.example.comprefacil.models.ShoppingCartViewModel;
-import com.example.comprefacil.models.ShoppingData;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -98,7 +87,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                         }
 
                         // Inserir produtos na compra
-                        for (ProdutoData produto : ShoppingCart.getItens()) {
+                        for (ProdutoData produto : itens) {
                             try {
                                 HttpRequest httpRequest2 = new HttpRequest(Config.SERVER_URL_BASE + "compra_item.php", "POST", "UTF-8");
                                 httpRequest2.addParam("id_compra", String.valueOf(id1));
@@ -111,6 +100,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(result);
                                 final int success = jsonObject.getInt("success");
                                 if (success == 1) {
+                                    ShoppingCart.deleteItem(produto);
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -138,8 +128,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }else{
                     Toast.makeText(ShoppingCartActivity.this, "Não há nenhum produto no carrinho.", Toast.LENGTH_SHORT).show();
                 }
-                itens.clear();
-                ShoppingCart.deleteItens();
+
             }
         });
 

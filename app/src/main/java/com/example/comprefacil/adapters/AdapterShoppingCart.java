@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comprefacil.R;
 import com.example.comprefacil.models.ProdutoData;
+import com.example.comprefacil.models.ShoppingCart;
 import com.example.comprefacil.models.ShoppingData;
 
 import java.util.List;
@@ -58,6 +59,7 @@ public class AdapterShoppingCart extends RecyclerView.Adapter {
                 //código para deletar item do carrinho
                 itens.remove(holder.getAdapterPosition());
                 notifyItemRemoved(holder.getAdapterPosition());
+                ShoppingCart.deleteItem(item);
             }
         });
     }
