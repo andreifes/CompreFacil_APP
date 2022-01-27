@@ -36,15 +36,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/acb_entre_singup"
         style="@style/button_white"
-        android:layout_width="115dp"
-        android:layout_height="0dp"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
         android:text="Entre"
         android:textColor="#000"
-        app:layout_constraintBottom_toBottomOf="@+id/acb_cadastrese_singup"
         app:layout_constraintStart_toStartOf="@+id/v_container_singup"
-        app:layout_constraintTop_toTopOf="@+id/acb_cadastrese_singup"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/v_container_singup">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -53,13 +52,13 @@
         style="@style/button_dark_pastel_pink"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-10dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:text="Cadastre-se"
         android:textColor="#FFF"
         app:layout_constraintEnd_toEndOf="@+id/v_container_singup"
-        app:layout_constraintStart_toEndOf="@+id/acb_entre_singup"
+        app:layout_constraintStart_toStartOf="@+id/acb_entre_singup"
         app:layout_constraintTop_toTopOf="@+id/v_container_singup"
         tools:ignore="TextContrastCheck">
 

@@ -2,7 +2,7 @@
 <resources>
 
     <style name="container_white">
-        <item name="android:background">@drawable/container_white</item>
+        <item name="android:background">@drawable/container_grey</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">250dp</item>
     </style>

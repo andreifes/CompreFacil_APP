@@ -20,9 +20,9 @@ public class AdapterShoppingCart extends RecyclerView.Adapter {
 
     Context context;
 
-    List<ShoppingData> itens;
+    List<ProdutoData> itens;
 
-    public AdapterShoppingCart(Context context, List<ShoppingData> itens) {
+    public AdapterShoppingCart(Context context, List<ProdutoData> itens) {
         this.context = context;
         this.itens = itens;
     }
@@ -38,31 +38,32 @@ public class AdapterShoppingCart extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ShoppingData item = this.itens.get(position);
+        ProdutoData item = this.itens.get(position);
 
         View v = holder.itemView;
 
         ImageView produto_img = v.findViewById(R.id.item_iv_produto_cart);
-        produto_img.setImageBitmap(item.getImgItem());
+        produto_img.setImageBitmap(item.getImg());
 
         TextView nome = v.findViewById(R.id.item_tv_nome_cart);
         nome.setText(item.getNome());
 
-        TextView preco = v.findViewById(R.id.item_tv_nome_cart);
+        TextView preco = v.findViewById(R.id.item_tv_preco_cart);
         preco.setText(item.getPreco());
 
         ImageView delete_img = v.findViewById(R.id.item_iv_delete_cart);
-        delete_img.setImageBitmap(item.getImgDelete());
         delete_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //código para deletar item do carrinho
+                itens.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.itens.size();
     }
 }

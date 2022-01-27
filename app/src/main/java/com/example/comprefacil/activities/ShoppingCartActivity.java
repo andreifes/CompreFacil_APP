@@ -15,6 +15,7 @@ import com.example.comprefacil.adapters.AdapterHome;
 import com.example.comprefacil.adapters.AdapterShoppingCart;
 import com.example.comprefacil.models.HomeViewModel;
 import com.example.comprefacil.models.MercadoData;
+import com.example.comprefacil.models.ShoppingCart;
 import com.example.comprefacil.models.ShoppingCartViewModel;
 import com.example.comprefacil.models.ShoppingData;
 
@@ -27,7 +28,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
 
-        Intent i  = getIntent();
+        Intent i = getIntent();
         String id = String.valueOf(i.getIntExtra("id", 0));
 
         RecyclerView rvItem = findViewById(R.id.rv_itens_cart);
@@ -36,16 +37,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvItem.setLayoutManager(layoutManager);
 
-        ShoppingCartViewModel shoppingCartViewModel = new ViewModelProvider(this).get(ShoppingCartViewModel.class);
+        AdapterShoppingCart adapterShoppingCart = new AdapterShoppingCart(ShoppingCartActivity.this, ShoppingCart.getItens());
+        rvItem.setAdapter(adapterShoppingCart);
 
-        LiveData<List<ShoppingData>> itensLv = ShoppingCartViewModel.getItens();
-        itensLv.observe(this, new Observer<List<ShoppingData>>() {
-            @Override
-            public void onChanged(List<ShoppingData> shoppingData) {
-                AdapterShoppingCart adapterShoppingCart = new AdapterShoppingCart(ShoppingCartActivity.this, shoppingData);
-                rvItem.setAdapter(adapterShoppingCart);
-
-            }
-        }
-        );}
+    }
 }

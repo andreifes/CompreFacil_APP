@@ -7,24 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comprefacil.R;
+import com.example.comprefacil.activities.LoginActivity;
+import com.example.comprefacil.activities.SupermarketActivity;
 import com.example.comprefacil.models.ProdutoData;
+import com.example.comprefacil.models.ShoppingCart;
+import com.example.comprefacil.models.ShoppingCartViewModel;
 
 import java.util.List;
 
 public class AdapterSupermarket extends RecyclerView.Adapter {
 
-    Context context;
+    SupermarketActivity context;
+
 
     List<ProdutoData> itens;
 
-    public AdapterSupermarket(Context context, List<ProdutoData> itens) {
+    public AdapterSupermarket(SupermarketActivity context, List<ProdutoData> itens) {
         this.context = context;
         this.itens = itens;
+
     }
 
     @NonNull
@@ -49,12 +57,16 @@ public class AdapterSupermarket extends RecyclerView.Adapter {
         nome.setText(produto.getNome());
 
         TextView preco = v.findViewById(R.id.item_tv_preço_products);
-        preco.setText(produto.getPreco());
+        preco.setText("R" + produto.getPreco());
 
         ImageView add_prod = v.findViewById(R.id.item_iv_addcarrinho_products);
         add_prod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                ShoppingCart.addProduto(produto);
+                Toast.makeText(context, "Produto adicionado no carrinho.", Toast.LENGTH_SHORT).show();
+
 
             }
         });

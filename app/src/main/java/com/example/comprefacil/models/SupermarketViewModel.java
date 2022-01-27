@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.comprefacil.activities.Config;
 import com.example.comprefacil.activities.HttpRequest;
 import com.example.comprefacil.activities.Util;
 
@@ -28,27 +29,27 @@ public class SupermarketViewModel extends ViewModel {
     String id;
     //id = Integer.toS
 
-    MutableLiveData<ProdutoData> produto;
+    MutableLiveData<List<ProdutoData>> produtosLv;
 
     public SupermarketViewModel(String id) {
         this.id = id;
     }
 
-    public LiveData<ProdutoData> getProduto() {
-        if(this.produto==null){
-            produto = new MutableLiveData<ProdutoData>();
-            loadProduto();
+    public LiveData<List<ProdutoData>> getProdutosLv() {
+        if(this.produtosLv==null){
+            produtosLv = new MutableLiveData<List<ProdutoData>>();
+            loadProdutos();
         }
-        return produto;
+        return produtosLv;
     }
 
-    void loadProduto(){
+    void loadProdutos(){
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                HttpRequest httpRequest = new HttpRequest("https://compre-facil.herokuapp.com/get_all_produtos.php", "GET", "UTF-8");
-                httpRequest.addParam("id", id);
+                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_all_produtos.php", "GET", "UTF-8");
+                httpRequest.addParam("id_mercado", id);
 
                 try {
                     InputStream is = httpRequest.execute();
@@ -61,6 +62,7 @@ public class SupermarketViewModel extends ViewModel {
                     final int success = jsonObject.getInt("success");
                     if(success == 1) {
                         JSONArray jsonArray = jsonObject.getJSONArray("produtos");
+                        List<ProdutoData> produtoDataList = new ArrayList<>();
                         for(int i = 0; i < jsonArray.length(); i++){
                             JSONObject jProduto = jsonArray.getJSONObject(i);
 
@@ -69,12 +71,16 @@ public class SupermarketViewModel extends ViewModel {
                             String nome = jProduto.getString("nome");
                             String categoria = jProduto.getString("nome_categoria");
                             String imageBase64 = jProduto.getString("img");
+                            String id_produto = jProduto.getString("id");
                             imageBase64 = imageBase64.substring(imageBase64.indexOf(",") + 1);
                             Bitmap img_produto = Util.base642Bitmap(imageBase64);
                             //int id, String nome, String preco, Bitmap img, int categoria
-                            ProdutoData produtoData = new ProdutoData(nome, preco, img_produto, id_categoria);
-                            produto.postValue(produtoData);
+                            //int id_mercado, int id_produto, String nome, String preco, Bitmap img, int categoria
+                            ProdutoData produtoData = new ProdutoData(id, id_produto, nome, preco, img_produto, id_categoria);
+                            produtoDataList.add(produtoData);
+
                         }
+                        produtosLv.postValue(produtoDataList);
                     }
 
                 } catch (IOException | JSONException e) {

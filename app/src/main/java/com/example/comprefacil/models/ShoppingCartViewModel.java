@@ -4,25 +4,22 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartViewModel extends ViewModel {
-    int id;
 
-    MutableLiveData<List<ShoppingData>> itens;
+    public List<ProdutoData> getItens() {
+        return itens;
+    }
+
+    List<ProdutoData> itens = new ArrayList<>();
 
     public ShoppingCartViewModel() {
     }
 
-    public LiveData<List<ShoppingData>> getItens(){
-        if(itens==null){
-            itens = new MutableLiveData<List<ShoppingData>>();
-            loadItens();
-        }
-        return itens;
-    }
-
-    void loadItens() {
+    public void addProduto(ProdutoData produto){
+        itens.add(produto);
     }
 }
 

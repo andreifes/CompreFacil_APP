@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.comprefacil.R;
 import com.example.comprefacil.activities.SupermarketActivity;
 import com.example.comprefacil.models.MercadoData;
+import com.example.comprefacil.models.MercadoInfo;
 
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class AdapterHome extends RecyclerView.Adapter {
         iv_supermercado.setImageBitmap(homeItem.getImagem());
 
         TextView localizacao = v.findViewById(R.id.item_tv_localizacao_home);
-        String location = homeItem.getCidade() + "-" + homeItem.getBairro();
+        String location = homeItem.getCidade() + " - " + homeItem.getBairro();
         localizacao.setText(location);
 
         TextView nome = v.findViewById(R.id.item_tv_supermercado_home);
@@ -60,6 +61,11 @@ public class AdapterHome extends RecyclerView.Adapter {
             public void onClick(View view) {
                 Intent i = new Intent(context, SupermarketActivity.class);
                 i.putExtra("id", homeItem.getId());
+                MercadoInfo.setImg(homeItem.getImagem());
+                MercadoInfo.setId(homeItem.getId());
+                MercadoInfo.setNome(homeItem.getNome());
+                MercadoInfo.setCidade(homeItem.getCidade());
+                MercadoInfo.setBairro(homeItem.getBairro());
                 context.startActivity(i);
             }
         });

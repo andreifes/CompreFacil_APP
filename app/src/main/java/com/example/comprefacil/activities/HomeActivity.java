@@ -1,5 +1,6 @@
 package com.example.comprefacil.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toolbar;
 
 import com.example.comprefacil.R;
 import com.example.comprefacil.adapters.AdapterHome;
@@ -41,5 +44,11 @@ public class HomeActivity extends AppCompatActivity {
                 rv_home.setAdapter(myAdapterHome);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
+
     }
 }

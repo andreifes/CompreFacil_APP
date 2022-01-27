@@ -2,31 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/pastelpurple">
-
-    <View
-        android:id="@+id/item_v_container_cart"
-        android:layout_width="333dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/container_white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/container_white"
+    android:elevation="5dp">
 
     <ImageView
         android:id="@+id/item_iv_produto_cart"
-        android:layout_width="107dp"
-        android:layout_height="0dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/item_v_container_cart"
-        app:layout_constraintStart_toStartOf="@+id/item_v_container_cart"
-        app:layout_constraintTop_toTopOf="@+id/item_v_container_cart"
-        app:layout_constraintVertical_bias="0.528"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -34,34 +28,39 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/item_tv_preco_cart"
-        app:layout_constraintEnd_toStartOf="@+id/item_iv_delete_cart"
+        android:textColor="#100101"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item_tv_preco_cart"
         app:layout_constraintStart_toEndOf="@+id/item_iv_produto_cart"
-        app:layout_constraintTop_toTopOf="@+id/item_iv_produto_cart" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/item_iv_delete_cart"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/item_v_container_cart"
-        app:layout_constraintTop_toTopOf="@+id/item_v_container_cart"
-        app:srcCompat="@drawable/ic_baseline_delete_24" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_delete" />
 
     <TextView
         android:id="@+id/item_tv_preco_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/item_v_container_cart"
-        app:layout_constraintEnd_toEndOf="@+id/item_v_container_cart"
-        app:layout_constraintTop_toBottomOf="@+id/item_iv_delete_cart"
-        app:layout_constraintVertical_bias="0.868" />
+        android:textColor="#120101"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
