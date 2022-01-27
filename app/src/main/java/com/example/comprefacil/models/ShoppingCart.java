@@ -11,7 +11,6 @@ public class ShoppingCart {
 
     static List<ProdutoData> itens = new ArrayList<>();
 
-
     static public void addProduto(ProdutoData produto){
         itens.add(produto);
     }

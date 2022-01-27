@@ -45,9 +45,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
         acb_finaliza_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<ProdutoData> itens;
+                List<ProdutoData> itens = new ArrayList<>();
+                itens.addAll(ShoppingCart.getItens());
 
-                itens = ShoppingCart.getItens();
                 if(!itens.isEmpty()){
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(new Runnable() {
