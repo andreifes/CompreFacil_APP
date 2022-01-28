@@ -19,6 +19,7 @@ import com.example.comprefacil.models.CompraData;
 import com.example.comprefacil.models.HomeViewModel;
 import com.example.comprefacil.models.MercadoData;
 import com.example.comprefacil.models.PurchasesViewModel;
+import com.example.comprefacil.models.SupermarketViewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +45,9 @@ public class PurchasesActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvCompras.setLayoutManager(layoutManager);
 
-        PurchasesViewModel purchasesViewModel = new ViewModelProvider(this).get(PurchasesViewModel.class);
+        String Login = Config.getLogin(PurchasesActivity.this);
+
+        PurchasesViewModel purchasesViewModel = new ViewModelProvider(this, new PurchasesViewModel.SupermarketViewModelFactory(Login)).get(PurchasesViewModel.class);
 
         LiveData<List<CompraData>> compraLv = purchasesViewModel.getItens();
         compraLv.observe(this, new Observer<List<CompraData>>() {

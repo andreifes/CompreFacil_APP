@@ -28,12 +28,13 @@ import java.util.concurrent.Executors;
 
 public class PurchasesViewModel extends ViewModel {
 
-    String id;
+    String login;
+
     MutableLiveData<List<CompraData>> itens;
     PurchasesActivity context;
 
-    public PurchasesViewModel(String id) {
-        this.id = id;
+    public PurchasesViewModel(String login) {
+        this.login = login;
     }
 
 
@@ -54,7 +55,7 @@ public class PurchasesViewModel extends ViewModel {
                 List<CompraData> compraDataList = new ArrayList<>();
 
                 HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_compras.php", "GET", "UTF-8");
-                httpRequest.addParam("email_usuario", Config.getLogin(context));
+                httpRequest.addParam("email_usuario", login);
                 try {
                     InputStream is = httpRequest.execute();
                     String result = Util.inputStream2String(is, "UTF-8");
@@ -89,6 +90,20 @@ public class PurchasesViewModel extends ViewModel {
                 }
             }
         });
+    }
+
+    static public class SupermarketViewModelFactory implements ViewModelProvider.Factory {
+        String login;
+
+        public SupermarketViewModelFactory(String login) {
+            this.login = login;
+        }
+
+        @NonNull
+        @Override
+        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+            return (T) new PurchasesViewModel(login);
+        }
     }
 
 
