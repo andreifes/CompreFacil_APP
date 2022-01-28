@@ -86,7 +86,7 @@ public class PurchasesActivity extends AppCompatActivity {
         });
 
         LiveData<List<CompraData>> itensLv = itens;
-        itens.observe(this, new Observer<List<CompraData>>() {
+        itensLv.observe(this, new Observer<List<CompraData>>() {
                     @Override
                     public void onChanged(List<CompraData> compraData) {
 
