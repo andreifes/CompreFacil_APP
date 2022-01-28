@@ -41,8 +41,8 @@ public class ProfileActivity extends AppCompatActivity {
         imgCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intado = new Intent(ProfileActivity.this, ShoppingCartActivity.class);
-                startActivity(intado);
+                Intent intado2 = new Intent(ProfileActivity.this, ShoppingCartActivity.class);
+                startActivity(intado2);
             }
         });
 

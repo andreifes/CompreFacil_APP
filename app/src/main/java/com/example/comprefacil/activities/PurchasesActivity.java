@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,9 @@ import android.util.Log;
 import com.example.comprefacil.R;
 import com.example.comprefacil.adapters.AdapterPurchases;
 import com.example.comprefacil.models.CompraData;
+import com.example.comprefacil.models.HomeViewModel;
+import com.example.comprefacil.models.MercadoData;
+import com.example.comprefacil.models.PurchasesViewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,8 +33,6 @@ import java.util.concurrent.Executors;
 
 public class PurchasesActivity extends AppCompatActivity {
 
-    MutableLiveData<List<CompraData>> itens;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,60 +44,19 @@ public class PurchasesActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvCompras.setLayoutManager(layoutManager);
 
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(new Runnable() {
+        PurchasesViewModel purchasesViewModel = new ViewModelProvider(this).get(PurchasesViewModel.class);
+
+        LiveData<List<CompraData>> compraLv = purchasesViewModel.getItens();
+        compraLv.observe(this, new Observer<List<CompraData>>() {
             @Override
-            public void run() {
+            public void onChanged(List<CompraData> compraData) {
 
-                List<CompraData> compraDataList = new ArrayList<>();
-
-                HttpRequest httpRequest = new HttpRequest(Config.SERVER_URL_BASE + "get_compras.php", "GET", "UTF-8");
-
-                try {
-                    InputStream is = httpRequest.execute();
-                    String result = Util.inputStream2String(is, "UTF-8");
-                    httpRequest.finish();
-
-                    Log.d("HTTP_REQUEST_RESULT", result);
-                    JSONObject jsonObject = new JSONObject(result);
-                    final int success = jsonObject.getInt("success");
-                    if(success == 1) {
-                        JSONArray jsonArray = jsonObject.getJSONArray("compras");
-                        for(int i = 0; i < jsonArray.length(); i++){
-                            JSONObject jCompra = jsonArray.getJSONObject(i);
-
-                            String id_compra = String.valueOf(jCompra.getInt("id_compra"));
-                            String data_hora = jCompra.getString("data_hora");
-                            String cidade = jCompra.getString("cidade_mercado");
-                            String nome_mercado = jCompra.getString("nome_mercado");
-                            String preco = jCompra.getString("preco");
-                            String imageBase64 = jCompra.getString("img_produto");
-                            imageBase64 = imageBase64.substring(imageBase64.indexOf(",") + 1);
-                            Bitmap img_produto = Util.base642Bitmap(imageBase64);
-
-                            //String data_hora, String cidade_mercado, String id_compra, String nome_mercado, String preco, Bitmap img_produto)
-                            CompraData compraData = new CompraData(data_hora, cidade, id_compra, nome_mercado, preco, img_produto);
-                            compraDataList.add(compraData);
-                        }
-                        itens.postValue(compraDataList);
-                    }
-
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
-                }
+                AdapterPurchases adapterPurchases = new AdapterPurchases(PurchasesActivity.this, compraData);
+                rvCompras.setAdapter(adapterPurchases);
             }
         });
 
-        LiveData<List<CompraData>> itensLv = itens;
-        itensLv.observe(this, new Observer<List<CompraData>>() {
-                    @Override
-                    public void onChanged(List<CompraData> compraData) {
-
-                        AdapterPurchases adapterPurchases = new AdapterPurchases(PurchasesActivity.this, compraData);
-                        rvCompras.setAdapter(adapterPurchases);
-
-                    }
-                });
 
     }
+
 }

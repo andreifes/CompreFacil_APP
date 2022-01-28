@@ -118,7 +118,6 @@ public class SupermarketActivity extends AppCompatActivity {
             }
         });
 
-        MercadoData mercadoData;
         String bairro = MercadoInfo.getBairro();
         String cidade = MercadoInfo.getCidade();
 
