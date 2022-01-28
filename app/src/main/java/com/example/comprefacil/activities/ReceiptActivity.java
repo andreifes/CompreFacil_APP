@@ -35,7 +35,7 @@ public class ReceiptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_receipt);
 
         Intent i = getIntent();
-        //Bitmap img_mercado = i.getParcelableExtra("img_mercado");
+        //Bitmap img_mercado = (Bitmap) i.getParcelableExtra("img_mercado");
         String nome_mercado = i.getStringExtra("nome_mercado");
         String bairro_mercado = i.getStringExtra("bairro_mercado");
         String cidade_mercado = i.getStringExtra("cidade_mercado");
@@ -45,8 +45,10 @@ public class ReceiptActivity extends AppCompatActivity {
 
         String location = cidade_mercado + " - " + bairro_mercado;
 
-        /*ImageView iv_mercado_receipt = findViewById(R.id.iv_mercado_receipt);
-        iv_mercado_receipt.setImageBitmap(img_mercado); */
+        /*
+        ImageView iv_mercado_receipt = findViewById(R.id.iv_mercado_receipt);
+        iv_mercado_receipt.setImageBitmap(img_mercado);
+         */
 
         TextView tv_nomemercado_receipt = findViewById(R.id.tv_nomemercado_receipt);
         tv_nomemercado_receipt.setText(nome_mercado);
@@ -72,9 +74,9 @@ public class ReceiptActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv_receipt.setLayoutManager(layoutManager);
 
-
         ReceiptViewModel receiptViewModel = new ViewModelProvider(this).get(ReceiptViewModel.class);
         receiptViewModel.setId_compra(id_compra);
+        receiptViewModel.setContext(this);
 
         LiveData<List<ProdutoData>> produtosLv = receiptViewModel.getItens();
         produtosLv.observe(this, new Observer<List<ProdutoData>>() {

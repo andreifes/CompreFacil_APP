@@ -1,12 +1,15 @@
 package com.example.comprefacil.models;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.comprefacil.R;
 import com.example.comprefacil.activities.Config;
 import com.example.comprefacil.activities.HttpRequest;
 import com.example.comprefacil.activities.PurchasesActivity;
@@ -40,6 +43,8 @@ public class ReceiptViewModel extends ViewModel {
         this.id_compra = id_compra;
     }
 
+    public void setContext(ReceiptActivity context) { this.context = context; }
+
     public LiveData<List<ProdutoData>> getItens() {
         if (itens == null) {
             itens = new MutableLiveData<List<ProdutoData>>();
@@ -70,8 +75,18 @@ public class ReceiptViewModel extends ViewModel {
                     JSONObject jsonObject = new JSONObject(result);
                     final int success = jsonObject.getInt("success");
                     if(success == 1) {
+                        String imageBase64 = jsonObject.getString("img_mercado");
+                        imageBase64 = imageBase64.substring(imageBase64.indexOf(",") + 1);
+                        Bitmap img_mercado = Util.base642Bitmap(imageBase64);
+                        ((ReceiptActivity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((ImageView) context.findViewById(R.id.iv_mercado_receipt)).setImageBitmap(img_mercado);
+                            }
+                        });
+
                         JSONArray jsonArray = jsonObject.getJSONArray("itensCompra");
-                        for(int i = 0; i < jsonArray.length(); i++){
+                        for(int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jCompra = jsonArray.getJSONObject(i);
 
                             String nome = jCompra.getString("nome");
