@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intado2 = new Intent(ProfileActivity.this, HomeActivity.class);
+                startActivity(intado2);
             }
         });
 

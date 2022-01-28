@@ -123,6 +123,7 @@ public class SupermarketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intado2 = new Intent(SupermarketActivity.this, HomeActivity.class);
+                startActivity(intado2);
             }
         });
 

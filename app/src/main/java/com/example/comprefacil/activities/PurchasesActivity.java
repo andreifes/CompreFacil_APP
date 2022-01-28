@@ -65,6 +65,7 @@ public class PurchasesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intado2 = new Intent(PurchasesActivity.this, HomeActivity.class);
+                startActivity(intado2);
             }
         });
 
