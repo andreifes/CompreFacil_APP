@@ -10,6 +10,7 @@
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/tv_home_toolbar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
@@ -17,11 +18,12 @@
             android:layout_marginRight="24dp"
             android:layout_toStartOf="@id/iv_carrinho_toolbar"
             android:layout_toEndOf="@id/iv_location_toolbar"
-            android:fontFamily="casual"
+            android:fontFamily="@font/carter_one"
             android:text="Compre Fácil"
             android:textAlignment="center"
             android:textColor="@color/test6"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_perfil_toolbar"
