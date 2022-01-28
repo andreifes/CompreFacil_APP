@@ -118,6 +118,15 @@ public class SupermarketActivity extends AppCompatActivity {
             }
         });
 
+        TextView tvLogo = findViewById(R.id.tv_home_toolbar);
+        tvLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intado2 = new Intent(SupermarketActivity.this, HomeActivity.class);
+            }
+        });
+
+
         String bairro = MercadoInfo.getBairro();
         String cidade = MercadoInfo.getCidade();
 

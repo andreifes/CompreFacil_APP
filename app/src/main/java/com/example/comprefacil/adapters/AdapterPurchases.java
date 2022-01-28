@@ -16,6 +16,7 @@ import com.example.comprefacil.activities.PurchasesActivity;
 import com.example.comprefacil.activities.ReceiptActivity;
 import com.example.comprefacil.models.CompraData;
 
+import java.io.File;
 import java.util.List;
 
 public class AdapterPurchases extends RecyclerView.Adapter {
@@ -68,6 +69,13 @@ public class AdapterPurchases extends RecyclerView.Adapter {
         v.setOnClickListener(v1 -> {
             Intent i = new Intent(context, ReceiptActivity.class);
             i.putExtra("id_compra", compra.getId_compra());
+            //i.putExtra("img_mercado", compra.getImg_mercado());
+            i.putExtra("cidade_mercado", compra.getCidade_mercado());
+            i.putExtra("bairro_mercado", compra.getBairro_mercado());
+            i.putExtra("preco_total", compra.getPreco());
+            i.putExtra("horario", compra.getData_hora());
+            i.putExtra("nome_mercado", compra.getNome_mercado());
+
             context.startActivity(i);
             ((PurchasesActivity) context).finish();
         });

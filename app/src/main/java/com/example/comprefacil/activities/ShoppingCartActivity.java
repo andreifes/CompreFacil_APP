@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.comprefacil.R;
@@ -40,6 +41,14 @@ public class ShoppingCartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intado1 = new Intent(ShoppingCartActivity.this, ProfileActivity.class);
                 startActivity(intado1);
+            }
+        });
+
+        TextView tvLogo = findViewById(R.id.tv_home_toolbar);
+        tvLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intado2 = new Intent(ShoppingCartActivity.this, HomeActivity.class);
             }
         });
 

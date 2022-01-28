@@ -21,6 +21,11 @@ public class ProdutoData {
         this.categoria = categoria;
     }
 
+    public ProdutoData(String nome, String preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
     public String getNome() {
         return nome;
     }

@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.comprefacil.R;
 import com.example.comprefacil.adapters.AdapterPurchases;
@@ -59,6 +60,14 @@ public class PurchasesActivity extends AppCompatActivity {
             }
         });
 
+        TextView tvLogo = findViewById(R.id.tv_home_toolbar);
+        tvLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intado2 = new Intent(PurchasesActivity.this, HomeActivity.class);
+            }
+        });
+
         RecyclerView rvCompras = findViewById(R.id.rv_compras_purchases);
         rvCompras.setHasFixedSize(true);
 
@@ -73,7 +82,6 @@ public class PurchasesActivity extends AppCompatActivity {
         compraLv.observe(this, new Observer<List<CompraData>>() {
             @Override
             public void onChanged(List<CompraData> compraData) {
-
                 AdapterPurchases adapterPurchases = new AdapterPurchases(PurchasesActivity.this, compraData);
                 rvCompras.setAdapter(adapterPurchases);
             }

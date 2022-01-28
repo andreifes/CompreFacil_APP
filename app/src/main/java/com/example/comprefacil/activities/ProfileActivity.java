@@ -37,6 +37,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        TextView tvLogo = findViewById(R.id.tv_home_toolbar);
+        tvLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intado2 = new Intent(ProfileActivity.this, HomeActivity.class);
+            }
+        });
+
         ImageView imgCarrinho = findViewById(R.id.iv_carrinho_toolbar);
         imgCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
