@@ -68,6 +68,7 @@ public class AdapterPurchases extends RecyclerView.Adapter {
 
         v.setOnClickListener(v1 -> {
             Intent i = new Intent(context, ReceiptActivity.class);
+
             i.putExtra("id_compra", compra.getId_compra());
             //i.putExtra("img_mercado", compra.getImg_mercado());
             i.putExtra("cidade_mercado", compra.getCidade_mercado());
@@ -77,7 +78,6 @@ public class AdapterPurchases extends RecyclerView.Adapter {
             i.putExtra("nome_mercado", compra.getNome_mercado());
 
             context.startActivity(i);
-            ((PurchasesActivity) context).finish();
         });
 
     }

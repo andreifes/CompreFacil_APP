@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -51,7 +52,7 @@ public class ReceiptActivity extends AppCompatActivity {
         tv_nomemercado_receipt.setText(nome_mercado);
 
         TextView Tvpreco = findViewById(R.id.tv_preço_receipt);
-        Tvpreco.setText("RS$" + preco_total);
+        Tvpreco.setText("R" + preco_total);
 
         TextView tv_localização_receipt = findViewById(R.id.tv_localização_receipt);
         tv_localização_receipt.setText(location);
@@ -63,12 +64,12 @@ public class ReceiptActivity extends AppCompatActivity {
         tv_idcompra_receipt.setText("Pedido N°" + id_compra);
 
         TextView compra = findViewById(R.id.tv_soma_purchases);
-        compra.setText("RS$" + preco_total);
+        compra.setText("R" + preco_total);
 
         RecyclerView rv_receipt = findViewById(R.id.rv_notafiscal_receipt);
         rv_receipt.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rv_receipt.setLayoutManager(layoutManager);
 
 
