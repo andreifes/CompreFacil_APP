@@ -65,8 +65,8 @@ public class SupermarketActivity extends AppCompatActivity {
 
         categoriasData.add(item2);
 
-        Uri img_categoria3 = Uri.parse("android.resource://com.example.comprefacil/" + R.drawable.confeitaria);
-        CategoriasData item3 = new CategoriasData("Confeteria", 8, img_categoria3);
+        Uri img_categoria3 = Uri.parse("android.resource://com.example.comprefacil/" + R.drawable.petshop);
+        CategoriasData item3 = new CategoriasData("Pet Shop", 8, img_categoria3);
         categoriasData.add(item3);
 
 
