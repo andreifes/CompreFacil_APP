@@ -37,17 +37,6 @@
         <entry key="..\:/Users/20181tiimi0316/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/item_rv_shopping_cart.xml" value="0.67" />
         <entry key="..\:/Users/20181tiimi0316/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/item_tv_receipt.xml" value="0.67" />
         <entry key="..\:/Users/20181tiimi0316/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/toolbar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/activity_supermarke.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/item_rv_purchases.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/item_rv_shopping_cart.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/layout/item_tv_receipt.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/mipmap-anydpi-v26/ic_comprefacil.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/mipmap-anydpi-v26/ic_comprefacil_round.xml" value="0.22135416666666666" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
-        <entry key="..\:/Users/Diogo Lucca/AndroidStudioProjects/CompreFacil_App/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/CompreFacil/app/src/main/res/layout/activity_purchases.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/User/AndroidStudioProjects/CompreFacil/app/src/main/res/layout/activity_shopping_cart.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/User/Desktop/CompreFacil/app/src/main/res/layout/activity_supermarke.xml" value="0.1693840579710145" />
@@ -61,5 +50,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
