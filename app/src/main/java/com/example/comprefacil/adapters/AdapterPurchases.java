@@ -1,6 +1,7 @@
 package com.example.comprefacil.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comprefacil.R;
+import com.example.comprefacil.activities.PurchasesActivity;
+import com.example.comprefacil.activities.ReceiptActivity;
 import com.example.comprefacil.models.CompraData;
-import com.example.comprefacil.models.MercadoData;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -51,8 +51,10 @@ public class AdapterPurchases extends RecyclerView.Adapter {
         TextView dataHora = v.findViewById(R.id.item_tv_datahora_purchases);
         dataHora.setText(compra.getData_hora());
 
-        TextView cidadeMercado = v.findViewById(R.id.item_tv_cidade_purchases);
-        cidadeMercado.setText(compra.getCidade_mercado());
+        String localizacao = compra.getCidade_mercado() + " - " + compra.getBairro_mercado();
+
+        TextView location = v.findViewById(R.id.item_tv_cidade_purchases);
+        location.setText(localizacao);
 
         TextView nomeMercado = v.findViewById(R.id.item_tv_nome_purchases);
         nomeMercado.setText(compra.getNome_mercado());
@@ -61,7 +63,14 @@ public class AdapterPurchases extends RecyclerView.Adapter {
         preco.setText(compra.getPreco());
 
         ImageView imgProduto = v.findViewById(R.id.item_iv_logo_purchases);
-        imgProduto.setImageBitmap(compra.getImg_produto());
+        imgProduto.setImageBitmap(compra.getImg_mercado());
+
+        v.setOnClickListener(v1 -> {
+            Intent i = new Intent(context, ReceiptActivity.class);
+            i.putExtra("id_compra", compra.getId_compra());
+            context.startActivity(i);
+            ((PurchasesActivity) context).finish();
+        });
 
     }
 

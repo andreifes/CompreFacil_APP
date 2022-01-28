@@ -72,14 +72,15 @@ public class PurchasesViewModel extends ViewModel {
                             String id_compra = String.valueOf(jCompra.getInt("id_compra"));
                             String data_hora = jCompra.getString("data_hora");
                             String cidade = jCompra.getString("cidade_mercado");
+                            String bairro = jCompra.getString("bairro_mercado");
                             String nome_mercado = jCompra.getString("nome_mercado");
-                            String preco = jCompra.getString("preco");
+                            String preco = jCompra.getString("preco_total");
                             String imageBase64 = jCompra.getString("img_produto");
                             imageBase64 = imageBase64.substring(imageBase64.indexOf(",") + 1);
-                            Bitmap img_produto = Util.base642Bitmap(imageBase64);
+                            Bitmap img_mercado = Util.base642Bitmap(imageBase64);
 
                             //String data_hora, String cidade_mercado, String id_compra, String nome_mercado, String preco, Bitmap img_produto)
-                            CompraData compraData = new CompraData(data_hora, cidade, id_compra, nome_mercado, preco, img_produto);
+                            CompraData compraData = new CompraData(data_hora, cidade, bairro, id_compra, nome_mercado, preco, img_mercado);
                             compraDataList.add(compraData);
                         }
                         itens.postValue(compraDataList);

@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.comprefacil.R;
 import com.example.comprefacil.adapters.AdapterPurchases;
@@ -38,6 +40,24 @@ public class PurchasesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchases);
+
+        ImageView imgCarrinho = findViewById(R.id.iv_carrinho_toolbar);
+        imgCarrinho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intado = new Intent(PurchasesActivity.this, ShoppingCartActivity.class);
+                startActivity(intado);
+            }
+        });
+
+        ImageView imgPerfil = findViewById(R.id.iv_perfil_toolbar);
+        imgPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intado1 = new Intent(PurchasesActivity.this, ProfileActivity.class);
+                startActivity(intado1);
+            }
+        });
 
         RecyclerView rvCompras = findViewById(R.id.rv_compras_purchases);
         rvCompras.setHasFixedSize(true);
